@@ -12,8 +12,8 @@ array SplitBergmanSolver(array original_image, array lambda, double theta, doubl
 	array u = original_image.copy();
 	int height = original_image.dims(0);
 	int width = original_image.dims(1);
-	array b = constant(0, dim4(height*2,width), f64);
-	array w = constant(0, dim4(height * 2, width), f64);
+	array b = constant(0, height*2,width, f64);
+	array w = constant(0, height * 2, width, f64);
 	while (image_norm > tolerant && i < max_iteration) {
 		last_image = u.copy();
 		w = wSolver(u, b, theta);

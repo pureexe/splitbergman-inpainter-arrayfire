@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="Divergence.h" />
     <ClInclude Include="Gradient.h" />
+    <ClInclude Include="Signum.h" />
     <ClInclude Include="SplitBergmanSolver.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "Gradient.h"
+#include "Signum.h"
 
 //remove arrayfire conflict with visual studio
 #undef max
@@ -14,9 +15,8 @@ array wSolver(array u, array b, double theta) {
 	int width = u.dims(1);
 	array gradB = Gradient(u) + b;
 	array w = abs(gradB) - (1 / theta);
-	array zeroMatrix = constant(0, dim4(height * 2, width), f64);
-	w = max(w, zeroMatrix);
-	array bSign = sign(gradB);
-	return w * bSign;
+	array zeroMatrix = constant(0, height * 2, width, f64);
+	w = max(w, zeroMatrix) * Signum(gradB);
+	return w;
 }
 
