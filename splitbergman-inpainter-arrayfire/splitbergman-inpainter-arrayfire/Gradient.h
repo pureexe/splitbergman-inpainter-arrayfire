@@ -1,7 +1,8 @@
 #pragma once
 #include "stdafx.h"
 
-//using ArrayFire built-in grad
+
+//Manuel Gradeint (Faster convergence?)
 array Gradient(array u)
 {
 	int height = u.dims(0);
@@ -13,9 +14,15 @@ array Gradient(array u)
 	u_left = u_left - u;
 	u_up = u_up - u;
 	return join(0, u_up, u_left);
-	/*
+}
+
+/*
+//using ArrayFire built-in grad
+array Gradient(array u)
+{
 		array ux, uy;
 		grad(ux, uy, u);
 		return join(0, ux, uy);
-	*/
 }
+*/
+
